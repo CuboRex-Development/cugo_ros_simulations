@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+<xacro:macro name="gazebo_material" params="ref mu *color">
+
+	<gazebo reference="${ref}">
+		<mu1>${mu}</mu1>
+		<mu2>${mu}</mu2>
+    <xacro:insert_block name="color" />
+	</gazebo>
+
+</xacro:macro>
+
+</robot>
+
