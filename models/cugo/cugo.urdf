@@ -71,6 +71,30 @@
       <inertia ixx="0.13542" ixy="0.0" ixz="0.0" iyy="0.10833" iyz="0.0" izz="0.17708"/>
     </inertial>
   </link>
+  <joint name="tbox_body" type="fixed">
+    <parent link="base_body"/>
+    <child link="tbox"/>
+    <origin rpy="0 0 0" xyz="0 0 0.18"/>
+  </joint>
+  <!-- タカチボックス -->
+  <link name="tbox">
+    <visual>
+      <geometry>
+        <box size="0.42 0.58 0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.42 0.58 0.2"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.13542" ixy="0.0" ixz="0.0" iyy="0.10833" iyz="0.0" izz="0.17708"/>
+    </inertial>
+  </link>
   <!-- 車輪のジョイントと車輪のリンク -->
   <joint name="right_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>

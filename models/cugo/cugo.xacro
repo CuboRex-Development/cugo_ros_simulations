@@ -8,6 +8,10 @@
   <xacro:property name="body_depth" value="0.58" />
   <xacro:property name="body_height" value="0.26" />
 
+  <xacro:property name="tbox_width" value="0.42" />
+  <xacro:property name="tbox_depth" value="0.58" />
+  <xacro:property name="tbox_height" value="0.20" />
+
   <xacro:property name="wheel_length" value="0.06" />
   <!--<xacro:property name="wheel_length" value="0.145" />-->
   <xacro:property name="collision_wheel_length" value="0.145" />
@@ -66,6 +70,32 @@
     <!--
         <mesh filename="file://$(find cugo_ros2_control)/urdf/xacro/roskit-Compound.dae" scale="1 1 1"/>
     -->
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.13542" iyy="0.10833" izz="0.17708" ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial>
+  </link>
+
+  <joint name="tbox_body" type="fixed">
+    <parent link="base_body"/>
+    <child link="tbox"/>
+    <origin rpy="0 0 0" xyz="0 0 ${tbox_height/2+body_height/2-0.05}"/>
+  </joint>
+
+  <!-- タカチボックス -->
+  <link name="tbox">
+    <visual>
+      <geometry>
+        <box size="${tbox_width} ${tbox_depth} ${tbox_height}"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="${tbox_width} ${tbox_depth} ${tbox_height}"/>
       </geometry>
     </collision>
     <inertial>
