@@ -74,6 +74,7 @@
   <!-- 車輪のジョイントと車輪のリンク -->
   <joint name="right_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="0.5" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="right_wheel"/>
     <!--<origin rpy="0 0 0" xyz="-0.133333333333 0 -0.085"/>-->
@@ -110,6 +111,7 @@
   </link>
   <joint name="right_wheel_joint_center_mini_front" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="right_wheel_center_mini_front"/>
     <!--<origin rpy="0 1.57075 0" xyz="0.1 0.07716 -0.13858"/>-->
@@ -142,6 +144,7 @@
   </link>
   <joint name="right_wheel_joint_center_mini_back" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="right_wheel_center_mini_back"/>
     <!--<origin rpy="0 1.57075 0" xyz="0.1 -0.07716 -0.13858"/>-->
@@ -228,6 +231,7 @@
     -->
   <joint name="right_wheel_joint_big_front" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="right_wheel_big_front"/>
     <!--<origin rpy="0 1.57075 0" xyz="0.1 0.17 -0.13858"/>-->
@@ -260,6 +264,7 @@
   </link>
   <joint name="right_wheel_joint_big_back" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="right_wheel_big_back"/>
     <!--<origin rpy="0 1.57075 0" xyz="0.1 -0.17 -0.13858"/>-->
@@ -292,6 +297,7 @@
   </link>
   <joint name="left_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_wheel"/>
     <!--<origin rpy="0 0 0" xyz="0.133333333333 0 -0.085"/>-->
@@ -328,6 +334,7 @@
   </link>
   <joint name="left_wheel_joint_center_mini_front" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_wheel_center_mini_front"/>
     <!--<origin rpy="0 1.57075 0" xyz="-0.1 0.07716 -0.13858"/>-->
@@ -360,6 +367,7 @@
   </link>
   <joint name="left_wheel_joint_center_mini_back" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_wheel_center_mini_back"/>
     <!--<origin rpy="0 1.57075 0" xyz="-0.1 -0.07716 -0.13858"/>-->
@@ -446,6 +454,7 @@
     -->
   <joint name="left_wheel_joint_big_front" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_wheel_big_front"/>
     <!--<origin rpy="0 1.57075 0" xyz="-0.1 0.17 -0.13858"/>-->
@@ -477,6 +486,7 @@
   </link>
   <joint name="left_wheel_joint_big_back" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_wheel_big_back"/>
     <!--<origin rpy="0 1.57075 0" xyz="-0.1 -0.17 -0.13858"/>-->
@@ -605,16 +615,16 @@
   <gazebo>
     <!--<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">-->
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive">
-      <update_rate>30</update_rate>
+      <update_rate>10</update_rate>
       <!-- wheels -->
-      <left_joint>left_wheel_joint</left_joint>
-      <right_joint>right_wheel_joint</right_joint>
+      <left_joint>right_wheel_joint</left_joint>
+      <right_joint>left_wheel_joint</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
       <wheel_diameter>0.040</wheel_diameter>
       <!-- limits -->
       <max_wheel_acceleration>1.0</max_wheel_acceleration>
-      <max_wheel_torque>20</max_wheel_torque>
+      <max_wheel_torque>1.0</max_wheel_torque>
       <command_topic>cmd_vel</command_topic>
       <!-- output -->
       <publish_odom>true</publish_odom>
@@ -631,15 +641,17 @@
   </gazebo>
   <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive_mini_front">
-      <left_joint>left_wheel_joint_center_mini_front</left_joint>
-      <right_joint>right_wheel_joint_center_mini_front</right_joint>
-      <!--<robotBaseFrame>base_link</robotBaseFrame>-->
+      <update_rate>10</update_rate>
+      <!-- wheels -->
+      <left_joint>right_wheel_joint_center_mini_front</left_joint>
+      <right_joint>left_wheel_joint_center_mini_front</right_joint>
+      <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
       <wheel_diameter>0.040</wheel_diameter>
-      <updateRate>10</updateRate>
-      <wheelAcceleration>1.0</wheelAcceleration>
-      <wheelTorque>20</wheelTorque>
-      <commandTopic>cmd_vel</commandTopic>
+      <!-- limits -->
+      <max_wheel_acceleration>1.0</max_wheel_acceleration>
+      <max_wheel_torque>1.0</max_wheel_torque>
+      <command_topic>cmd_vel</command_topic>
       <!--
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
@@ -653,15 +665,17 @@
   </gazebo>
   <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive_mini_back">
-      <left_joint>left_wheel_joint_center_mini_back</left_joint>
-      <right_joint>right_wheel_joint_center_mini_back</right_joint>
-      <!--<robotBaseFrame>base_link</robotBaseFrame>-->
-      <wheel_separation>0.460</wheel_separation>
+      <update_rate>10</update_rate>
+      <!-- wheels -->
+      <left_joint>right_wheel_joint_center_mini_back</left_joint>
+      <right_joint>left_wheel_joint_center_mini_back</right_joint>
+      <!-- kinematics -->
+      <wheel_separation>0.160</wheel_separation>
       <wheel_diameter>0.040</wheel_diameter>
-      <updateRate>10</updateRate>
-      <wheelAcceleration>1.0</wheelAcceleration>
-      <wheelTorque>20</wheelTorque>
-      <commandTopic>cmd_vel</commandTopic>
+      <!-- limits -->
+      <max_wheel_acceleration>1.0</max_wheel_acceleration>
+      <max_wheel_torque>1.0</max_wheel_torque>
+      <command_topic>cmd_vel</command_topic>
       <!--
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
@@ -675,15 +689,17 @@
   </gazebo>
   <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive_big_front">
-      <left_joint>left_wheel_joint_big_front</left_joint>
-      <right_joint>right_wheel_joint_big_front</right_joint>
-      <!--<robotBaseFrame>base_link</robotBaseFrame>-->
+      <update_rate>10</update_rate>
+      <!-- wheels -->
+      <left_joint>right_wheel_joint_big_front</left_joint>
+      <right_joint>left_wheel_joint_big_front</right_joint>
+      <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
       <wheel_diameter>0.050</wheel_diameter>
-      <updateRate>10</updateRate>
-      <wheelAcceleration>1.0</wheelAcceleration>
-      <wheelTorque>20</wheelTorque>
-      <commandTopic>cmd_vel</commandTopic>
+      <!-- limits -->
+      <max_wheel_acceleration>1.0</max_wheel_acceleration>
+      <max_wheel_torque>1.0</max_wheel_torque>
+      <command_topic>cmd_vel</command_topic>
       <!--
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
@@ -697,15 +713,17 @@
   </gazebo>
   <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive_big_back">
-      <left_joint>left_wheel_joint_big_back</left_joint>
-      <right_joint>right_wheel_joint_big_back</right_joint>
-      <!--<robotBaseFrame>base_link</robotBaseFrame>-->
+      <update_rate>10</update_rate>
+      <!-- wheels -->
+      <left_joint>right_wheel_joint_big_back</left_joint>
+      <right_joint>left_wheel_joint_big_back</right_joint>
+      <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
       <wheel_diameter>0.050</wheel_diameter>
-      <updateRate>10</updateRate>
-      <wheelAcceleration>1.0</wheelAcceleration>
-      <wheelTorque>20</wheelTorque>
-      <commandTopic>cmd_vel</commandTopic>
+      <!-- limits -->
+      <max_wheel_acceleration>1.0</max_wheel_acceleration>
+      <max_wheel_torque>1.0</max_wheel_torque>
+      <command_topic>cmd_vel</command_topic>
       <!--
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
