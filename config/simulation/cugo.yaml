@@ -1,12 +1,13 @@
 amcl:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
     alpha1: 0.2
     alpha2: 0.2
     alpha3: 0.2
     alpha4: 0.2
     alpha5: 0.2
     base_frame_id: "base_footprint"
+    #base_frame_id: "base_link"
     beam_skip_distance: 0.5
     beam_skip_error_threshold: 0.9
     beam_skip_threshold: 0.3
@@ -37,20 +38,21 @@ amcl:
     z_max: 0.05
     z_rand: 0.5
     z_short: 0.05
+    scan_topic: scan # add
 
 amcl_map_client:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
 
 amcl_rclcpp_node:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
 
 bt_navigator:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
     global_frame: map
-    robot_base_frame: base_link
+    robot_base_frame: base_footprint
     odom_topic: /odom
     default_bt_xml_filename: "navigate_w_replanning_and_recovery.xml"
     plugin_lib_names:
@@ -77,62 +79,116 @@ bt_navigator:
 
 bt_navigator_rclcpp_node:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
 
 controller_server:
   ros__parameters:
-    use_sim_time: False
-    controller_frequency: 10.0
-    min_x_velocity_threshold: 0.000
+    use_sim_time: True
+    #controller_frequency: 10.0
+    controller_frequency: 20.0
+    #min_x_velocity_threshold: 0.000
+    min_x_velocity_threshold: 0.001
     min_y_velocity_threshold: 0.5
     min_theta_velocity_threshold: 0.001
+    progress_checker_plugin: "progress_checker"
+    goal_checker_plugin: "goal_checker"
     controller_plugins: ["FollowPath"]
 
-    # DWB parameters
-    FollowPath:
-      plugin: "dwb_core::DWBLocalPlanner"
-      debug_trajectory_details: True
-      min_vel_x: 0.0 # original 0.0
-      min_vel_y: 0.0
-      max_vel_x: 0.2 # original 0.22
-      max_vel_y: 0.0
-      max_vel_theta: 0.1 # 2.75 # 1.0
-      #min_vel_theta: 0.75 # new
-      min_speed_xy: 0.0
-      max_speed_xy: 0.022
-      min_speed_theta: 0.0
-      acc_lim_x: 2.5 # 2.5
-      acc_lim_y: 0.0
-      acc_lim_theta: 3.2
-      decel_lim_x: -2.5
-      decel_lim_y: 0.0
-      decel_lim_theta: -3.2
-      vx_samples: 20
-      vy_samples: 0
-      vtheta_samples: 40
-      sim_time: 1.5
-      linear_granularity: 0.05
-      angular_granularity: 0.025
-      transform_tolerance: 0.2
-      xy_goal_tolerance: 0.05 # original 0.05
-      trans_stopped_velocity: 0.25
-      short_circuit_trajectory_evaluation: True
+    # Progress checker parameters
+    progress_checker:
+      plugin: "nav2_controller::SimpleProgressChecker"
+      required_movement_radius: 0.5
+      movement_time_allowance: 10.0
+    # Goal checker parameters
+    goal_checker:
+      plugin: "nav2_controller::SimpleGoalChecker"
+      #xy_goal_tolerance: 0.25
+      xy_goal_tolerance: 0.25
+      #yaw_goal_tolerance: 0.25
+      yaw_goal_tolerance: 0.25
       stateful: True
-      critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
-      BaseObstacle.scale: 0.02
-      PathAlign.scale: 32.0
-      PathAlign.forward_point_distance: 0.1
-      GoalAlign.scale: 24.0
-      GoalAlign.forward_point_distance: 0.1
-      PathDist.scale: 32.0
-      GoalDist.scale: 24.0
-      RotateToGoal.scale: 32.0
-      RotateToGoal.slowing_factor: 5.0
-      RotateToGoal.lookahead_time: -1.0
+
+    ## DWB parameters
+    #FollowPath:
+    #  plugin: "dwb_core::DWBLocalPlanner"
+    #  debug_trajectory_details: True
+    #  min_vel_x: 0.0 # original 0.0
+    #  min_vel_y: 0.0
+    #  max_vel_x: 0.2 # original 0.22
+    #  max_vel_y: 0.0
+    #  max_vel_theta: 0.25 # 2.75 # 1.0
+    #  #min_vel_theta: 0.75 # new
+    #  min_speed_xy: 0.0
+    #  #max_speed_xy: 0.022
+    #  max_speed_xy: 0.22
+    #  min_speed_theta: 0.0
+    #  acc_lim_x: 2.5 # 2.5
+    #  acc_lim_y: 0.0
+    #  acc_lim_theta: 3.2
+    #  decel_lim_x: -2.5
+    #  decel_lim_y: 0.0
+    #  decel_lim_theta: -3.2
+    #  vx_samples: 20
+    #  #vy_samples: 0
+    #  vy_samples: 5
+    #  #vtheta_samples: 40
+    #  vtheta_samples: 20
+    #  sim_time: 1.5
+    #  linear_granularity: 0.05
+    #  angular_granularity: 0.025
+    #  transform_tolerance: 0.2
+    #  xy_goal_tolerance: 0.25 # original 0.05
+    #  yaw_goal_tolerance: 0.25 # original 0.05
+    #  trans_stopped_velocity: 0.25
+    #  short_circuit_trajectory_evaluation: True
+    #  stateful: True
+    #  critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
+    #  BaseObstacle.scale: 0.02
+    #  PathAlign.scale: 32.0
+    #  PathAlign.forward_point_distance: 0.1
+    #  GoalAlign.scale: 24.0
+    #  GoalAlign.forward_point_distance: 0.1
+    #  PathDist.scale: 32.0
+    #  GoalDist.scale: 24.0
+    #  RotateToGoal.scale: 32.0
+    #  RotateToGoal.slowing_factor: 5.0
+    #  RotateToGoal.lookahead_time: -1.0
+
+    # Regulated Pure Pursuit parameters
+    FollowPath:
+      plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
+      desired_linear_vel: 0.1
+      lookahead_dist: 0.6
+      min_lookahead_dist: 0.3
+      max_lookahead_dist: 0.9
+      lookahaead_time: 1.5
+      #rotate_to_heading_angular_vel: 1.8
+      rotate_to_heading_angular_vel: 0.5
+      transform_tolerance: 0.1
+      use_velocity_scaled_lookahead_dist: false
+      min_approach_linear_velocity: 0.05
+      approach_velocity_scaling_dist: 0.6
+      use_collision_detection: true
+      max_allowed_time_to_collision_up_to_carrot: 1.0
+      use_regulated_linear_velocity_scaling: true
+      use_fixed_curvature_lookahead: false
+      curvature_lookahead_dist: 0.25
+      use_cost_regulated_linear_velocity_scaling: false
+      #regulated_linear_scaling_min_radius: 0.9
+      regulated_linear_scaling_min_radius: 0.1
+      #regulated_linear_scaling_min_speed: 0.25
+      regulated_linear_scaling_min_speed: 0.6
+      use_rotate_to_heading: true
+      allow_reversing: false
+      rotate_to_heading_min_angle: 0.785
+      #max_angular_accel: 3.2
+      max_angular_accel: 1.0
+      max_robot_pose_search_dist: 10.0
+      use_interpolation: false
 
 controller_server_rclcpp_node:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
 
 local_costmap:
   local_costmap:
@@ -140,18 +196,18 @@ local_costmap:
       update_frequency: 5.0
       publish_frequency: 2.0
       global_frame: odom
-      robot_base_frame: base_link
-      use_sim_time: False
+      robot_base_frame: base_footprint
+      use_sim_time: True
       rolling_window: true
       width: 3
       height: 3
       resolution: 0.05
-      robot_radius: 0.1 # original 0.1
+      robot_radius: 0.3 # original 0.1
       plugins: ["obstacle_layer", "voxel_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         inflation_radius: 0.1 # original 1.0
-        cost_scaling_factor: 3.0 # 3.0
+        cost_scaling_factor: 1.0 # 3.0
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: True
@@ -180,13 +236,32 @@ local_costmap:
           data_type: "PointCloud2"
       static_layer:
         map_subscribe_transient_local: True
+      rotate_to_heading_angular_vel: 1.8
+      transform_tolerance: 0.1
+      use_velocity_scaled_lookahead_dist: false
+      min_approach_linear_velocity: 0.05
+      approach_velocity_scaling_dist: 0.6
+      use_collision_detection: true
+      max_allowed_time_to_collision_up_to_carrot: 1.0
+      use_regulated_linear_velocity_scaling: true
+      use_fixed_curvature_lookahead: false
+      curvature_lookahead_dist: 0.25
+      use_cost_regulated_linear_velocity_scaling: false
+      regulated_linear_scaling_min_radius: 0.9
+      regulated_linear_scaling_min_speed: 0.25
+      use_rotate_to_heading: true
+      allow_reversing: false
+      rotate_to_heading_min_angle: 0.785
+      max_angular_accel: 3.2
+      max_robot_pose_search_dist: 10.0
+      use_interpolation: false
       always_send_full_costmap: True
   local_costmap_client:
     ros__parameters:
-      use_sim_time: False
+      use_sim_time: True
   local_costmap_rclcpp_node:
     ros__parameters:
-      use_sim_time: False
+      use_sim_time: True
 
 global_costmap:
   global_costmap:
@@ -194,9 +269,9 @@ global_costmap:
       update_frequency: 1.0
       publish_frequency: 1.0
       global_frame: map
-      robot_base_frame: base_link
-      use_sim_time: False
-      robot_radius: 0.1 # original 0.1
+      robot_base_frame: base_footprint
+      use_sim_time: True
+      robot_radius: 0.3 # original 0.1
       resolution: 0.05
       plugins: ["static_layer", "obstacle_layer", "voxel_layer", "inflation_layer"]
       obstacle_layer:
@@ -235,19 +310,19 @@ global_costmap:
       always_send_full_costmap: True
   global_costmap_client:
     ros__parameters:
-      use_sim_time: False
+      use_sim_time: True
   global_costmap_rclcpp_node:
     ros__parameters:
-      use_sim_time: False
+      use_sim_time: True
 
 map_server:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
     yaml_filename: "cugo_world.yaml"
 
 map_saver:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
     save_map_timeout: 5000
     free_thresh_default: 0.25
     occupied_thresh_default: 0.65
@@ -255,7 +330,7 @@ map_saver:
 planner_server:
   ros__parameters:
     expected_planner_frequency: 20.0
-    use_sim_time: False
+    use_sim_time: True
     planner_plugins: ["GridBased"]
     GridBased:
       plugin: "nav2_navfn_planner/NavfnPlanner"
@@ -265,7 +340,7 @@ planner_server:
 
 planner_server_rclcpp_node:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
 
 recoveries_server:
   ros__parameters:
@@ -280,14 +355,15 @@ recoveries_server:
     wait:
       plugin: "nav2_recoveries/Wait"
     global_frame: odom
-    robot_base_frame: base_link
+    robot_base_frame: base_footprint
     transform_timeout: 0.1
-    use_sim_time: False
+    use_sim_time: true
     simulate_ahead_time: 2.0
     max_rotational_vel: 1.0
     min_rotational_vel: 0.4
-    rotational_acc_lim: 3.2
+    #rotational_acc_lim: 3.2
+    rotational_acc_lim: 1.2
 
 robot_state_publisher:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
