@@ -14,10 +14,10 @@ def generate_launch_description():
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
     launch_file_dir = os.path.join(package_dir, 'launch')
 
-    world_file_name = 'cugo.model'
+    world_file_name = 'cugo_v3.model'
     urdf_file_name = 'cugo.urdf'
 
-    world = os.path.join(package_dir, 'worlds', 'cugo_worlds', world_file_name)
+    world = os.path.join(package_dir, 'worlds', 'sim_worlds', world_file_name)
     urdf = os.path.join(package_dir, 'models', 'cugo', urdf_file_name)
 
     print('world path: ', world)

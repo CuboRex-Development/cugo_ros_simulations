@@ -43,10 +43,10 @@
       </ode>
     </physics>
 
-    <model name="cugo_world">
+    <model name="sim_world">
       <static>1</static>
       <include>
-        <uri>model://cugo_world</uri>
+        <uri>model://sim_world</uri>
       </include>
     </model>
 
