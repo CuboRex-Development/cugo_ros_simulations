@@ -82,137 +82,12 @@
       <inertia ixx="0.13542" ixy="0.0" ixz="0.0" iyy="0.10833" iyz="0.0" izz="0.17708"/>
     </inertial>
   </link>
-  <joint name="right_wheel_joint" type="continuous">
+  <joint name="left_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
     <limit effort="0.5" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
-    <child link="right_wheel"/>
-    <origin rpy="0 1.57075 -1.57" xyz="0 0.24 -0.105"/>
-  </joint>
-  <link name="right_wheel">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.06" radius="0.04"/>
-      </geometry>
-      <material name="dummy_white"/>
-    </visual>
-    <collision>
-      <geometry>
-        <cylinder length="0.145" radius="0.04"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="0.1"/>
-      <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
-    </inertial>
-  </link>
-  <joint name="right_wheel_joint_center_mini_front" type="continuous">
-    <axis rpy="0 0 0" xyz="0 0 -1"/>
-    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
-    <parent link="base_body"/>
-    <child link="right_wheel_center_mini_front"/>
-    <origin rpy="0 1.57075 -1.57" xyz="0.08 0.24 -0.105"/>
-  </joint>
-  <link name="right_wheel_center_mini_front">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.06" radius="0.04"/>
-      </geometry>
-      <material name="dummy_white"/>
-    </visual>
-    <collision>
-      <geometry>
-        <cylinder length="0.145" radius="0.04"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="0.1"/>
-      <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
-    </inertial>
-  </link>
-  <joint name="right_wheel_joint_center_mini_back" type="continuous">
-    <axis rpy="0 0 0" xyz="0 0 -1"/>
-    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
-    <parent link="base_body"/>
-    <child link="right_wheel_center_mini_back"/>
-    <origin rpy="0 1.57075 -1.57" xyz="-0.08 0.24 -0.105"/>
-  </joint>
-  <link name="right_wheel_center_mini_back">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.06" radius="0.04"/>
-      </geometry>
-      <material name="dummy_white"/>
-    </visual>
-    <collision>
-      <geometry>
-        <cylinder length="0.145" radius="0.04"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="0.1"/>
-      <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
-    </inertial>
-  </link>
-  <joint name="right_wheel_joint_big_front" type="continuous">
-    <axis rpy="0 0 0" xyz="0 0 -1"/>
-    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
-    <parent link="base_body"/>
-    <child link="right_wheel_big_front"/>
-    <origin rpy="0 1.57075 -1.57" xyz="0.167 0.24 -0.08"/>
-  </joint>
-  <link name="right_wheel_big_front">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.06" radius="0.05"/>
-      </geometry>
-      <material name="dummy_white"/>
-    </visual>
-    <collision>
-      <geometry>
-        <cylinder length="0.145" radius="0.05"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="0.1"/>
-      <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
-    </inertial>
-  </link>
-  <joint name="right_wheel_joint_big_back" type="continuous">
-    <axis rpy="0 0 0" xyz="0 0 -1"/>
-    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
-    <parent link="base_body"/>
-    <child link="right_wheel_big_back"/>
-    <origin rpy="0 1.57075 -1.57" xyz="-0.167 0.24 -0.08"/>
-  </joint>
-  <link name="right_wheel_big_back">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.06" radius="0.05"/>
-      </geometry>
-      <material name="dummy_white"/>
-    </visual>
-    <collision>
-      <geometry>
-        <cylinder length="0.145" radius="0.05"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="0.1"/>
-      <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
-    </inertial>
-  </link>
-  <joint name="left_wheel_joint" type="continuous">
-    <axis rpy="0 0 0" xyz="0 0 -1"/>
-    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
-    <parent link="base_body"/>
     <child link="left_wheel"/>
-    <origin rpy="0 1.57075 -1.57" xyz="0 -0.22 -0.105"/>
+    <origin rpy="0 1.57075 -1.57" xyz="0 0.24 -0.105"/>
   </joint>
   <link name="left_wheel">
     <visual>
@@ -237,7 +112,7 @@
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_wheel_center_mini_front"/>
-    <origin rpy="0 1.57075 -1.57" xyz="0.08 -0.22 -0.105"/>
+    <origin rpy="0 1.57075 -1.57" xyz="0.08 0.24 -0.105"/>
   </joint>
   <link name="left_wheel_center_mini_front">
     <visual>
@@ -262,7 +137,7 @@
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_wheel_center_mini_back"/>
-    <origin rpy="0 1.57075 -1.57" xyz="-0.08 -0.22 -0.105"/>
+    <origin rpy="0 1.57075 -1.57" xyz="-0.08 0.24 -0.105"/>
   </joint>
   <link name="left_wheel_center_mini_back">
     <visual>
@@ -287,7 +162,7 @@
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_wheel_big_front"/>
-    <origin rpy="0 1.57075 -1.57" xyz="0.167 -0.22 -0.08"/>
+    <origin rpy="0 1.57075 -1.57" xyz="0.167 0.24 -0.08"/>
   </joint>
   <link name="left_wheel_big_front">
     <visual>
@@ -312,7 +187,7 @@
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_wheel_big_back"/>
-    <origin rpy="0 1.57075 -1.57" xyz="-0.167 -0.22 -0.08"/>
+    <origin rpy="0 1.57075 -1.57" xyz="-0.167 0.24 -0.08"/>
   </joint>
   <link name="left_wheel_big_back">
     <visual>
@@ -332,13 +207,138 @@
       <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
     </inertial>
   </link>
-  <joint name="right_crawler_joint" type="fixed">
+  <joint name="right_wheel_joint" type="continuous">
+    <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
+    <parent link="base_body"/>
+    <child link="right_wheel"/>
+    <origin rpy="0 1.57075 -1.57" xyz="0 -0.22 -0.105"/>
+  </joint>
+  <link name="right_wheel">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.06" radius="0.04"/>
+      </geometry>
+      <material name="dummy_white"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.145" radius="0.04"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
+    </inertial>
+  </link>
+  <joint name="right_wheel_joint_center_mini_front" type="continuous">
+    <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
+    <parent link="base_body"/>
+    <child link="right_wheel_center_mini_front"/>
+    <origin rpy="0 1.57075 -1.57" xyz="0.08 -0.22 -0.105"/>
+  </joint>
+  <link name="right_wheel_center_mini_front">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.06" radius="0.04"/>
+      </geometry>
+      <material name="dummy_white"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.145" radius="0.04"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
+    </inertial>
+  </link>
+  <joint name="right_wheel_joint_center_mini_back" type="continuous">
+    <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
+    <parent link="base_body"/>
+    <child link="right_wheel_center_mini_back"/>
+    <origin rpy="0 1.57075 -1.57" xyz="-0.08 -0.22 -0.105"/>
+  </joint>
+  <link name="right_wheel_center_mini_back">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.06" radius="0.04"/>
+      </geometry>
+      <material name="dummy_white"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.145" radius="0.04"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
+    </inertial>
+  </link>
+  <joint name="right_wheel_joint_big_front" type="continuous">
+    <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
+    <parent link="base_body"/>
+    <child link="right_wheel_big_front"/>
+    <origin rpy="0 1.57075 -1.57" xyz="0.167 -0.22 -0.08"/>
+  </joint>
+  <link name="right_wheel_big_front">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.06" radius="0.05"/>
+      </geometry>
+      <material name="dummy_white"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.145" radius="0.05"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
+    </inertial>
+  </link>
+  <joint name="right_wheel_joint_big_back" type="continuous">
+    <axis rpy="0 0 0" xyz="0 0 -1"/>
+    <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
+    <parent link="base_body"/>
+    <child link="right_wheel_big_back"/>
+    <origin rpy="0 1.57075 -1.57" xyz="-0.167 -0.22 -0.08"/>
+  </joint>
+  <link name="right_wheel_big_back">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.06" radius="0.05"/>
+      </geometry>
+      <material name="dummy_white"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.145" radius="0.05"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
+    </inertial>
+  </link>
+  <joint name="left_crawler_joint" type="fixed">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
     <parent link="base_body"/>
-    <child link="right_crawler"/>
+    <child link="left_crawler"/>
     <origin rpy="0 1.57075 -1.57" xyz="-0.01 0.22 -0.043"/>
   </joint>
-  <link name="right_crawler">
+  <link name="left_crawler">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -351,13 +351,13 @@
       <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
     </inertial>
   </link>
-  <joint name="left_crawler_joint" type="fixed">
+  <joint name="right_crawler_joint" type="fixed">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
     <parent link="base_body"/>
-    <child link="left_crawler"/>
+    <child link="right_crawler"/>
     <origin rpy="0 1.57075 -1.57" xyz="-0.10 -0.2065 -0.055"/>
   </joint>
-  <link name="left_crawler">
+  <link name="right_crawler">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -375,8 +375,8 @@
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive">
       <update_rate>10</update_rate>
       <!-- wheels -->
-      <left_joint>right_wheel_joint</left_joint>
-      <right_joint>left_wheel_joint</right_joint>
+      <left_joint>left_wheel_joint</left_joint>
+      <right_joint>right_wheel_joint</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
       <wheel_diameter>0.040</wheel_diameter>
@@ -401,8 +401,8 @@
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive_mini_front">
       <update_rate>10</update_rate>
       <!-- wheels -->
-      <left_joint>right_wheel_joint_center_mini_front</left_joint>
-      <right_joint>left_wheel_joint_center_mini_front</right_joint>
+      <left_joint>left_wheel_joint_center_mini_front</left_joint>
+      <right_joint>right_wheel_joint_center_mini_front</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
       <wheel_diameter>0.040</wheel_diameter>
@@ -417,8 +417,8 @@
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive_mini_back">
       <update_rate>10</update_rate>
       <!-- wheels -->
-      <left_joint>right_wheel_joint_center_mini_back</left_joint>
-      <right_joint>left_wheel_joint_center_mini_back</right_joint>
+      <left_joint>left_wheel_joint_center_mini_back</left_joint>
+      <right_joint>right_wheel_joint_center_mini_back</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.160</wheel_separation>
       <wheel_diameter>0.040</wheel_diameter>
@@ -433,8 +433,8 @@
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive_big_front">
       <update_rate>10</update_rate>
       <!-- wheels -->
-      <left_joint>right_wheel_joint_big_front</left_joint>
-      <right_joint>left_wheel_joint_big_front</right_joint>
+      <left_joint>left_wheel_joint_big_front</left_joint>
+      <right_joint>right_wheel_joint_big_front</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
       <wheel_diameter>0.050</wheel_diameter>
@@ -449,8 +449,8 @@
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive_big_back">
       <update_rate>10</update_rate>
       <!-- wheels -->
-      <left_joint>right_wheel_joint_big_back</left_joint>
-      <right_joint>left_wheel_joint_big_back</right_joint>
+      <left_joint>left_wheel_joint_big_back</left_joint>
+      <right_joint>right_wheel_joint_big_back</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
       <wheel_diameter>0.050</wheel_diameter>
@@ -550,13 +550,6 @@
       </geometry>
       <material name="dark"/>
     </visual>
-    <!--
-    <collision>
-      <origin xyz="0.015 0 -0.0065" rpy="0 0 -1.57"/>
-      <geometry>
-      </geometry>
-    </collision>
-    -->
     <inertial>
       <mass value="0.114"/>
       <origin xyz="0 0 0"/>
