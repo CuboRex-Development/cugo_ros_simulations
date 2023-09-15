@@ -46,7 +46,7 @@
     <model name="sim_world">
       <static>1</static>
       <include>
-        <uri>model://sim_world</uri>
+        <uri>model://turtlebot3_world</uri>
       </include>
     </model>
 
