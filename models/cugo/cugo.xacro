@@ -19,12 +19,17 @@
   <xacro:property name="wheel_length" value="0.06" />
   <xacro:property name="collision_wheel_length" value="0.145" />
   <!-- 当たり判定の径 -->
-  <xacro:property name="wheel_radius" value="0.050" />
+  <xacro:property name="wheel_radius" value="0.03858" />
   <!-- スプロケット径 -->
-  <xacro:property name="mini_wheel_radius" value="0.040" />
+  <xacro:property name="mini_wheel_radius" value="0.03858" />
 
-  <xacro:property name="big_wheel_front_x" value="0.167" />
-  <xacro:property name="big_wheel_back_x" value="-0.167" />
+  <xacro:property name="wheel_diameter" value="0.07716" />
+
+  <xacro:property name="max_wheel_acceleration" value="1.0" />
+  <xacro:property name="max_wheel_torque" value="5.0" />
+
+  <xacro:property name="big_wheel_front_x" value="0.172" />
+  <xacro:property name="big_wheel_back_x" value="-0.172" />
   <xacro:property name="center_wheel_z" value="-0.105" />
   <xacro:property name="big_wheel_z" value="-0.08" />
 
@@ -409,10 +414,10 @@
       <right_joint>right_wheel_joint</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
-      <wheel_diameter>0.040</wheel_diameter>
+      <wheel_diameter>${wheel_diameter}</wheel_diameter>
       <!-- limits -->
-      <max_wheel_acceleration>1.0</max_wheel_acceleration>
-      <max_wheel_torque>1.0</max_wheel_torque>
+      <max_wheel_acceleration>${max_wheel_acceleration}</max_wheel_acceleration>
+      <max_wheel_torque>${max_wheel_torque}</max_wheel_torque>
       <command_topic>cmd_vel</command_topic>
       <!-- output -->
       <publish_odom>true</publish_odom>
@@ -436,10 +441,10 @@
       <right_joint>right_wheel_joint_center_mini_front</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
-      <wheel_diameter>0.040</wheel_diameter>
+      <wheel_diameter>${wheel_diameter}</wheel_diameter>
       <!-- limits -->
-      <max_wheel_acceleration>1.0</max_wheel_acceleration>
-      <max_wheel_torque>1.0</max_wheel_torque>
+      <max_wheel_acceleration>${max_wheel_acceleration}</max_wheel_acceleration>
+      <max_wheel_torque>${max_wheel_torque}</max_wheel_torque>
       <command_topic>cmd_vel</command_topic>
       <legacyMode>false</legacyMode>
     </plugin>
@@ -452,11 +457,11 @@
       <left_joint>left_wheel_joint_center_mini_back</left_joint>
       <right_joint>right_wheel_joint_center_mini_back</right_joint>
       <!-- kinematics -->
-      <wheel_separation>0.160</wheel_separation>
-      <wheel_diameter>0.040</wheel_diameter>
+      <wheel_separation>0.460</wheel_separation>
+      <wheel_diameter>${wheel_diameter}</wheel_diameter>
       <!-- limits -->
-      <max_wheel_acceleration>1.0</max_wheel_acceleration>
-      <max_wheel_torque>1.0</max_wheel_torque>
+      <max_wheel_acceleration>${max_wheel_acceleration}</max_wheel_acceleration>
+      <max_wheel_torque>${max_wheel_torque}</max_wheel_torque>
       <command_topic>cmd_vel</command_topic>
       <legacyMode>false</legacyMode>
     </plugin>
@@ -470,10 +475,10 @@
       <right_joint>right_wheel_joint_big_front</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
-      <wheel_diameter>0.050</wheel_diameter>
+      <wheel_diameter>${wheel_diameter}</wheel_diameter>
       <!-- limits -->
-      <max_wheel_acceleration>1.0</max_wheel_acceleration>
-      <max_wheel_torque>1.0</max_wheel_torque>
+      <max_wheel_acceleration>${max_wheel_acceleration}</max_wheel_acceleration>
+      <max_wheel_torque>${max_wheel_torque}</max_wheel_torque>
       <command_topic>cmd_vel</command_topic>
       <legacyMode>false</legacyMode>
     </plugin>
@@ -487,10 +492,10 @@
       <right_joint>right_wheel_joint_big_back</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
-      <wheel_diameter>0.050</wheel_diameter>
+      <wheel_diameter>${wheel_diameter}</wheel_diameter>
       <!-- limits -->
-      <max_wheel_acceleration>1.0</max_wheel_acceleration>
-      <max_wheel_torque>1.0</max_wheel_torque>
+      <max_wheel_acceleration>${max_wheel_acceleration}</max_wheel_acceleration>
+      <max_wheel_torque>${max_wheel_torque}</max_wheel_torque>
       <command_topic>cmd_vel</command_topic>
       <legacyMode>false</legacyMode>
     </plugin>

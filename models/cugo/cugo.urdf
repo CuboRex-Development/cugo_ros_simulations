@@ -93,13 +93,13 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.06" radius="0.04"/>
+        <cylinder length="0.06" radius="0.03858"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="0.145" radius="0.04"/>
+        <cylinder length="0.145" radius="0.03858"/>
       </geometry>
     </collision>
     <inertial>
@@ -112,19 +112,19 @@
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_wheel_center_mini_front"/>
-    <origin rpy="0 1.57075 -1.57" xyz="0.08 0.24 -0.105"/>
+    <origin rpy="0 1.57075 -1.57" xyz="0.07716 0.24 -0.105"/>
   </joint>
   <link name="left_wheel_center_mini_front">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.06" radius="0.04"/>
+        <cylinder length="0.06" radius="0.03858"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="0.145" radius="0.04"/>
+        <cylinder length="0.145" radius="0.03858"/>
       </geometry>
     </collision>
     <inertial>
@@ -137,19 +137,19 @@
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_wheel_center_mini_back"/>
-    <origin rpy="0 1.57075 -1.57" xyz="-0.08 0.24 -0.105"/>
+    <origin rpy="0 1.57075 -1.57" xyz="-0.07716 0.24 -0.105"/>
   </joint>
   <link name="left_wheel_center_mini_back">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.06" radius="0.04"/>
+        <cylinder length="0.06" radius="0.03858"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="0.145" radius="0.04"/>
+        <cylinder length="0.145" radius="0.03858"/>
       </geometry>
     </collision>
     <inertial>
@@ -162,19 +162,19 @@
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_wheel_big_front"/>
-    <origin rpy="0 1.57075 -1.57" xyz="0.167 0.24 -0.08"/>
+    <origin rpy="0 1.57075 -1.57" xyz="0.172 0.24 -0.08"/>
   </joint>
   <link name="left_wheel_big_front">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.06" radius="0.05"/>
+        <cylinder length="0.06" radius="0.03858"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="0.145" radius="0.05"/>
+        <cylinder length="0.145" radius="0.03858"/>
       </geometry>
     </collision>
     <inertial>
@@ -187,19 +187,19 @@
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_wheel_big_back"/>
-    <origin rpy="0 1.57075 -1.57" xyz="-0.167 0.24 -0.08"/>
+    <origin rpy="0 1.57075 -1.57" xyz="-0.172 0.24 -0.08"/>
   </joint>
   <link name="left_wheel_big_back">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.06" radius="0.05"/>
+        <cylinder length="0.06" radius="0.03858"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="0.145" radius="0.05"/>
+        <cylinder length="0.145" radius="0.03858"/>
       </geometry>
     </collision>
     <inertial>
@@ -218,13 +218,13 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.06" radius="0.04"/>
+        <cylinder length="0.06" radius="0.03858"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="0.145" radius="0.04"/>
+        <cylinder length="0.145" radius="0.03858"/>
       </geometry>
     </collision>
     <inertial>
@@ -237,19 +237,19 @@
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="right_wheel_center_mini_front"/>
-    <origin rpy="0 1.57075 -1.57" xyz="0.08 -0.22 -0.105"/>
+    <origin rpy="0 1.57075 -1.57" xyz="0.07716 -0.22 -0.105"/>
   </joint>
   <link name="right_wheel_center_mini_front">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.06" radius="0.04"/>
+        <cylinder length="0.06" radius="0.03858"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="0.145" radius="0.04"/>
+        <cylinder length="0.145" radius="0.03858"/>
       </geometry>
     </collision>
     <inertial>
@@ -262,19 +262,19 @@
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="right_wheel_center_mini_back"/>
-    <origin rpy="0 1.57075 -1.57" xyz="-0.08 -0.22 -0.105"/>
+    <origin rpy="0 1.57075 -1.57" xyz="-0.07716 -0.22 -0.105"/>
   </joint>
   <link name="right_wheel_center_mini_back">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.06" radius="0.04"/>
+        <cylinder length="0.06" radius="0.03858"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="0.145" radius="0.04"/>
+        <cylinder length="0.145" radius="0.03858"/>
       </geometry>
     </collision>
     <inertial>
@@ -287,19 +287,19 @@
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="right_wheel_big_front"/>
-    <origin rpy="0 1.57075 -1.57" xyz="0.167 -0.22 -0.08"/>
+    <origin rpy="0 1.57075 -1.57" xyz="0.172 -0.22 -0.08"/>
   </joint>
   <link name="right_wheel_big_front">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.06" radius="0.05"/>
+        <cylinder length="0.06" radius="0.03858"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="0.145" radius="0.05"/>
+        <cylinder length="0.145" radius="0.03858"/>
       </geometry>
     </collision>
     <inertial>
@@ -312,19 +312,19 @@
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="right_wheel_big_back"/>
-    <origin rpy="0 1.57075 -1.57" xyz="-0.167 -0.22 -0.08"/>
+    <origin rpy="0 1.57075 -1.57" xyz="-0.172 -0.22 -0.08"/>
   </joint>
   <link name="right_wheel_big_back">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.06" radius="0.05"/>
+        <cylinder length="0.06" radius="0.03858"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="0.145" radius="0.05"/>
+        <cylinder length="0.145" radius="0.03858"/>
       </geometry>
     </collision>
     <inertial>
@@ -379,10 +379,10 @@
       <right_joint>right_wheel_joint</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
-      <wheel_diameter>0.040</wheel_diameter>
+      <wheel_diameter>0.07716</wheel_diameter>
       <!-- limits -->
       <max_wheel_acceleration>1.0</max_wheel_acceleration>
-      <max_wheel_torque>1.0</max_wheel_torque>
+      <max_wheel_torque>5.0</max_wheel_torque>
       <command_topic>cmd_vel</command_topic>
       <!-- output -->
       <publish_odom>true</publish_odom>
@@ -405,10 +405,10 @@
       <right_joint>right_wheel_joint_center_mini_front</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
-      <wheel_diameter>0.040</wheel_diameter>
+      <wheel_diameter>0.07716</wheel_diameter>
       <!-- limits -->
       <max_wheel_acceleration>1.0</max_wheel_acceleration>
-      <max_wheel_torque>1.0</max_wheel_torque>
+      <max_wheel_torque>5.0</max_wheel_torque>
       <command_topic>cmd_vel</command_topic>
       <legacyMode>false</legacyMode>
     </plugin>
@@ -420,11 +420,11 @@
       <left_joint>left_wheel_joint_center_mini_back</left_joint>
       <right_joint>right_wheel_joint_center_mini_back</right_joint>
       <!-- kinematics -->
-      <wheel_separation>0.160</wheel_separation>
-      <wheel_diameter>0.040</wheel_diameter>
+      <wheel_separation>0.460</wheel_separation>
+      <wheel_diameter>0.07716</wheel_diameter>
       <!-- limits -->
       <max_wheel_acceleration>1.0</max_wheel_acceleration>
-      <max_wheel_torque>1.0</max_wheel_torque>
+      <max_wheel_torque>5.0</max_wheel_torque>
       <command_topic>cmd_vel</command_topic>
       <legacyMode>false</legacyMode>
     </plugin>
@@ -437,10 +437,10 @@
       <right_joint>right_wheel_joint_big_front</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
-      <wheel_diameter>0.050</wheel_diameter>
+      <wheel_diameter>0.07716</wheel_diameter>
       <!-- limits -->
       <max_wheel_acceleration>1.0</max_wheel_acceleration>
-      <max_wheel_torque>1.0</max_wheel_torque>
+      <max_wheel_torque>5.0</max_wheel_torque>
       <command_topic>cmd_vel</command_topic>
       <legacyMode>false</legacyMode>
     </plugin>
@@ -453,10 +453,10 @@
       <right_joint>right_wheel_joint_big_back</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
-      <wheel_diameter>0.050</wheel_diameter>
+      <wheel_diameter>0.07716</wheel_diameter>
       <!-- limits -->
       <max_wheel_acceleration>1.0</max_wheel_acceleration>
-      <max_wheel_torque>1.0</max_wheel_torque>
+      <max_wheel_torque>5.0</max_wheel_torque>
       <command_topic>cmd_vel</command_topic>
       <legacyMode>false</legacyMode>
     </plugin>
