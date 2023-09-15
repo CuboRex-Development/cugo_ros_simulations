@@ -10,15 +10,9 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
-    urdf_file_name = 'cugo.urdf'
 
-    print('urdf_file_name : {}'.format(urdf_file_name))
-
-    urdf = os.path.join(
-        get_package_share_directory('cugo_ros2_control'),
-        'models',
-        'cugo',
-        urdf_file_name)
+    package_dir = get_package_share_directory("cugo_ros2_control")
+    urdf = os.path.join(package_dir, "models", "cugo", "cugo.urdf")
 
     return LaunchDescription([
         DeclareLaunchArgument(

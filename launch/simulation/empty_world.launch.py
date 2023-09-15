@@ -7,16 +7,21 @@ from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 
-#TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']
-
-
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='True')
-    world_file_name = 'empty_worlds/' + 'cugo.model'
-    world = os.path.join(get_package_share_directory('cugo_ros2_control'),
-                         'worlds', world_file_name)
-    launch_file_dir = os.path.join(get_package_share_directory('cugo_ros2_control'), 'launch/simulation')
+
+    package_dir = get_package_share_directory("cugo_ros2_control")
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
+    launch_file_dir = os.path.join(package_dir, 'launch')
+
+    world_file_name = 'cugo.model'
+    urdf_file_name = 'cugo.urdf'
+
+    world = os.path.join(package_dir, 'worlds', 'empty_worlds', world_file_name)
+    urdf = os.path.join(package_dir, 'models', 'cugo', urdf_file_name)
+
+    print('world path: ', world)
+    print('urdf path: ', urdf)
 
     return LaunchDescription([
         IncludeLaunchDescription(
@@ -32,12 +37,10 @@ def generate_launch_description():
             ),
         ),
 
-        ExecuteProcess(
-            cmd=['ros2', 'param', 'set', '/gazebo', 'use_sim_time', use_sim_time],
-            output='screen'),
-
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([launch_file_dir, '/robot_state_publisher.launch.py']),
+            PythonLaunchDescriptionSource(
+                os.path.join(launch_file_dir, 'simulation', 'robot_state_publisher.launch.py')
+            ),
             launch_arguments={'use_sim_time': use_sim_time}.items(),
         ),
     ])

@@ -8,34 +8,23 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
-#TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']
-
-
 def generate_launch_description():
-    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
+    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+
+    package_dir = get_package_share_directory('cugo_ros2_control')
+
     map_dir = LaunchConfiguration(
         'map',
-        default=os.path.join(
-            get_package_share_directory('cugo_ros2_control'),
-            'map',
-            'cugo_world.yaml'))
+        default=os.path.join(package_dir, 'map', 'cugo_world.yaml'))
 
-    #param_file_name = TURTLEBOT3_MODEL + '.yaml'
     param_file_name = 'cugo.yaml'
     param_dir = LaunchConfiguration(
         'params_file',
-        default=os.path.join(
-            get_package_share_directory('cugo_ros2_control'),
-            'config',
-            'simulation',
-            param_file_name))
+        default=os.path.join(package_dir, 'config', 'simulation', param_file_name))
 
     nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
 
-    rviz_config_dir = os.path.join(
-        get_package_share_directory('cugo_ros2_control'),
-        'rviz',
-        'nav2_default_view.rviz')
+    rviz_config_dir = os.path.join(package_dir, 'rviz', 'nav2_default_view.rviz')
 
     return LaunchDescription([
         DeclareLaunchArgument(
