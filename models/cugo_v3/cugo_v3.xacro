@@ -16,25 +16,25 @@
   <xacro:property name="body_collision_depth" value="0.58" />
   <xacro:property name="body_collision_height" value="0.20" />
 
-  <xacro:property name="wheel_length" value="0.06" />
-  <xacro:property name="collision_wheel_length" value="0.145" />
-  <!-- 当たり判定の径 -->
-  <xacro:property name="wheel_radius" value="0.03858" />
+  <xacro:property name="wheel_width" value="0.06" />
+  <xacro:property name="collision_wheel_width" value="0.145" />
   <!-- スプロケット径 -->
-  <xacro:property name="mini_wheel_radius" value="0.03858" />
-
+  <xacro:property name="wheel_radius" value="0.03858" />
   <xacro:property name="wheel_diameter" value="0.07716" />
 
   <xacro:property name="max_wheel_acceleration" value="1.0" />
   <xacro:property name="max_wheel_torque" value="5.0" />
 
-  <xacro:property name="big_wheel_front_x" value="0.172" />
-  <xacro:property name="big_wheel_back_x" value="-0.172" />
-  <xacro:property name="center_wheel_z" value="-0.105" />
-  <xacro:property name="big_wheel_z" value="-0.08" />
-
   <xacro:property name="left_wheel_y" value="0.24" />
   <xacro:property name="right_wheel_y" value="-0.22" />
+
+  <xacro:property name="front_wheel_x" value="0.172" />
+  <xacro:property name="front_wheel_z" value="-0.08" />
+
+  <xacro:property name="back_wheel_x" value="-0.172" />
+  <xacro:property name="back_wheel_z" value="-0.08" />
+
+  <xacro:property name="center_wheel_z" value="-0.105" />
 
 
 
@@ -105,13 +105,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="${wheel_length}" radius="${mini_wheel_radius}"/>
+        <cylinder length="${wheel_width}" radius="${wheel_radius}"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="${collision_wheel_length}" radius="${mini_wheel_radius}"/>
+        <cylinder length="${collision_wheel_width}" radius="${wheel_radius}"/>
       </geometry>
     </collision>
     <inertial>
@@ -125,20 +125,20 @@
     <limit lower="-1.57" upper="1.57" effort="1.0" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_center_1_wheel"/>
-    <origin xyz="${mini_wheel_radius*2} ${left_wheel_y} ${center_wheel_z}" rpy="0 1.57075 -1.57"/>
+    <origin xyz="${wheel_diameter} ${left_wheel_y} ${center_wheel_z}" rpy="0 1.57075 -1.57"/>
   </joint>
 
   <link name="left_center_1_wheel">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="${wheel_length}" radius="${mini_wheel_radius}"/>
+        <cylinder length="${wheel_width}" radius="${wheel_radius}"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="${collision_wheel_length}" radius="${mini_wheel_radius}"/>
+        <cylinder length="${collision_wheel_width}" radius="${wheel_radius}"/>
       </geometry>
     </collision>
     <inertial>
@@ -152,20 +152,20 @@
     <limit lower="-1.57" upper="1.57" effort="1.0" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_center_3_wheel"/>
-    <origin xyz="-${mini_wheel_radius*2} ${left_wheel_y} ${center_wheel_z}" rpy="0 1.57075 -1.57"/>
+    <origin xyz="-${wheel_diameter} ${left_wheel_y} ${center_wheel_z}" rpy="0 1.57075 -1.57"/>
   </joint>
 
   <link name="left_center_3_wheel">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="${wheel_length}" radius="${mini_wheel_radius}"/>
+        <cylinder length="${wheel_width}" radius="${wheel_radius}"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="${collision_wheel_length}" radius="${mini_wheel_radius}"/>
+        <cylinder length="${collision_wheel_width}" radius="${wheel_radius}"/>
       </geometry>
     </collision>
     <inertial>
@@ -179,20 +179,20 @@
     <limit lower="-1.57" upper="1.57" effort="1.0" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_front_wheel"/>
-    <origin xyz="${big_wheel_front_x} ${left_wheel_y} ${big_wheel_z}" rpy="0 1.57075 -1.57"/>
+    <origin xyz="${front_wheel_x} ${left_wheel_y} ${front_wheel_z}" rpy="0 1.57075 -1.57"/>
   </joint>
 
   <link name="left_front_wheel">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+        <cylinder length="${wheel_width}" radius="${wheel_radius}"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="${collision_wheel_length}" radius="${wheel_radius}"/>
+        <cylinder length="${collision_wheel_width}" radius="${wheel_radius}"/>
       </geometry>
     </collision>
     <inertial>
@@ -206,20 +206,20 @@
     <limit lower="-1.57" upper="1.57" effort="1.0" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="left_back_wheel"/>
-    <origin xyz="${big_wheel_back_x} ${left_wheel_y} ${big_wheel_z}" rpy="0 1.57075 -1.57"/>
+    <origin xyz="${back_wheel_x} ${left_wheel_y} ${back_wheel_z}" rpy="0 1.57075 -1.57"/>
   </joint>
 
   <link name="left_back_wheel">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+        <cylinder length="${wheel_width}" radius="${wheel_radius}"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="${collision_wheel_length}" radius="${wheel_radius}"/>
+        <cylinder length="${collision_wheel_width}" radius="${wheel_radius}"/>
       </geometry>
     </collision>
     <inertial>
@@ -240,13 +240,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="${wheel_length}" radius="${mini_wheel_radius}"/>
+        <cylinder length="${wheel_width}" radius="${wheel_radius}"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="${collision_wheel_length}" radius="${mini_wheel_radius}"/>
+        <cylinder length="${collision_wheel_width}" radius="${wheel_radius}"/>
       </geometry>
     </collision>
     <inertial>
@@ -260,20 +260,20 @@
     <limit lower="-1.57" upper="1.57" effort="1.0" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="right_center_1_wheel"/>
-    <origin xyz="${mini_wheel_radius*2} ${right_wheel_y} ${center_wheel_z}" rpy="0 1.57075 -1.57"/>
+    <origin xyz="${wheel_diameter} ${right_wheel_y} ${center_wheel_z}" rpy="0 1.57075 -1.57"/>
   </joint>
 
   <link name="right_center_1_wheel">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="${wheel_length}" radius="${mini_wheel_radius}"/>
+        <cylinder length="${wheel_width}" radius="${wheel_radius}"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="${collision_wheel_length}" radius="${mini_wheel_radius}"/>
+        <cylinder length="${collision_wheel_width}" radius="${wheel_radius}"/>
       </geometry>
     </collision>
     <inertial>
@@ -287,20 +287,20 @@
     <limit lower="-1.57" upper="1.57" effort="1.0" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="right_center_3_wheel"/>
-    <origin xyz="-${mini_wheel_radius*2} ${right_wheel_y} ${center_wheel_z}" rpy="0 1.57075 -1.57"/>
+    <origin xyz="-${wheel_diameter} ${right_wheel_y} ${center_wheel_z}" rpy="0 1.57075 -1.57"/>
   </joint>
 
   <link name="right_center_3_wheel">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="${wheel_length}" radius="${mini_wheel_radius}"/>
+        <cylinder length="${wheel_width}" radius="${wheel_radius}"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="${collision_wheel_length}" radius="${mini_wheel_radius}"/>
+        <cylinder length="${collision_wheel_width}" radius="${wheel_radius}"/>
       </geometry>
     </collision>
     <inertial>
@@ -314,20 +314,20 @@
     <limit lower="-1.57" upper="1.57" effort="1.0" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="right_front_wheel"/>
-    <origin xyz="${big_wheel_front_x} ${right_wheel_y} ${big_wheel_z}" rpy="0 1.57075 -1.57"/>
+    <origin xyz="${front_wheel_x} ${right_wheel_y} ${front_wheel_z}" rpy="0 1.57075 -1.57"/>
   </joint>
 
   <link name="right_front_wheel">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+        <cylinder length="${wheel_width}" radius="${wheel_radius}"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="${collision_wheel_length}" radius="${wheel_radius}"/>
+        <cylinder length="${collision_wheel_width}" radius="${wheel_radius}"/>
       </geometry>
     </collision>
     <inertial>
@@ -341,20 +341,20 @@
     <limit lower="-1.57" upper="1.57" effort="1.0" velocity="2.0"/>
     <parent link="base_body"/>
     <child link="right_back_wheel"/>
-    <origin xyz="${big_wheel_back_x} ${right_wheel_y} ${big_wheel_z}" rpy="0 1.57075 -1.57"/>
+    <origin xyz="${back_wheel_x} ${right_wheel_y} ${back_wheel_z}" rpy="0 1.57075 -1.57"/>
   </joint>
 
   <link name="right_back_wheel">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+        <cylinder length="${wheel_width}" radius="${wheel_radius}"/>
       </geometry>
       <material name="dummy_white"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="${collision_wheel_length}" radius="${wheel_radius}"/>
+        <cylinder length="${collision_wheel_width}" radius="${wheel_radius}"/>
       </geometry>
     </collision>
     <inertial>
