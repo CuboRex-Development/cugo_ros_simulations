@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="cugo_v3">
 
-  <xacro:include filename="$(find cugo_ros2_control)/models/cugo/material_colors.xacro" />
-  <xacro:include filename="$(find cugo_ros2_control)/models/cugo/gazebo_material_macro.xacro" />
+  <xacro:include filename="$(find cugo_ros2_control)/models/cugo_v3/material_colors.xacro" />
+  <xacro:include filename="$(find cugo_ros2_control)/models/cugo_v3/gazebo_material_macro.xacro" />
 
   <xacro:property name="body_width" value="0.42" />
   <xacro:property name="body_depth" value="0.58" />
@@ -57,7 +57,7 @@
   <link name="base_body">
     <visual>
       <geometry>
-        <mesh filename="file://$(find cugo_ros2_control)/models/cugo/meshes/roskit-Compound.dae" scale="1 1 1"/>
+        <mesh filename="file://$(find cugo_ros2_control)/models/cugo_v3/meshes/roskit-Compound.dae" scale="1 1 1"/>
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 -1.57"/>
       <material name="red"/>
@@ -374,7 +374,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="file://$(find cugo_ros2_control)/models/cugo/meshes/cugo_v3_l-CuGoV3_L001.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="file://$(find cugo_ros2_control)/models/cugo_v3/meshes/cugo_v3_l-CuGoV3_L001.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
     </visual>
@@ -395,7 +395,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="file://$(find cugo_ros2_control)/models/cugo/meshes/cugo_v3_r-CuGoV3_R001.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="file://$(find cugo_ros2_control)/models/cugo_v3/meshes/cugo_v3_r-CuGoV3_R001.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
     </visual>
@@ -561,7 +561,7 @@
     <visual>
       <origin xyz="0 0 0.0" rpy="0 0 -1.57"/>
       <geometry>
-        <mesh filename="file://$(find cugo_ros2_control)/models/cugo/meshes/lds.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="file://$(find cugo_ros2_control)/models/cugo_v3/meshes/lds.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="dark"/>
     </visual>

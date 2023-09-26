@@ -7,7 +7,7 @@ def generate_launch_description():
 
     package_dir = get_package_share_directory("cugo_ros2_control")
     rviz = os.path.join(package_dir, "rviz" , "urdf.rviz")
-    urdf = os.path.join(package_dir, "models", "cugo", "cugo.urdf")
+    urdf = os.path.join(package_dir, "models", "cugo_v3", "cugo_v3.urdf")
 
     return LaunchDescription([
 
