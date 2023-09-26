@@ -15,13 +15,9 @@ def generate_launch_description():
     launch_file_dir = os.path.join(package_dir, 'launch')
 
     world_file_name = 'cugo_v3.model'
-    urdf_file_name = 'cugo.urdf'
 
     world = os.path.join(package_dir, 'worlds', 'empty_worlds', world_file_name)
-    urdf = os.path.join(package_dir, 'models', 'cugo', urdf_file_name)
-
     print('world path: ', world)
-    print('urdf path: ', urdf)
 
     return LaunchDescription([
         IncludeLaunchDescription(
