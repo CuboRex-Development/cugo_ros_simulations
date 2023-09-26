@@ -35,7 +35,7 @@
     <color rgba="1.0 1.0 1.0 0.0"/>
   </material>
   <link name="base_footprint"/>
-  <joint name="base_footprint_joint" type="fixed">
+  <joint name="base_joint" type="fixed">
     <parent link="base_footprint"/>
     <child link="base_link"/>
     <origin rpy="0 0 0" xyz="0.0 0.0 0.1065"/>
@@ -82,14 +82,14 @@
       <inertia ixx="0.13542" ixy="0.0" ixz="0.0" iyy="0.10833" iyz="0.0" izz="0.17708"/>
     </inertial>
   </link>
-  <joint name="left_wheel_joint" type="continuous">
+  <joint name="left_center_2_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
     <limit effort="0.5" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
-    <child link="left_wheel"/>
+    <child link="left_center_2_wheel"/>
     <origin rpy="0 1.57075 -1.57" xyz="0 0.24 -0.105"/>
   </joint>
-  <link name="left_wheel">
+  <link name="left_center_2_wheel">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -107,14 +107,14 @@
       <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
     </inertial>
   </link>
-  <joint name="left_wheel_joint_center_mini_front" type="continuous">
+  <joint name="left_center_1_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
-    <child link="left_wheel_center_mini_front"/>
+    <child link="left_center_1_wheel"/>
     <origin rpy="0 1.57075 -1.57" xyz="0.07716 0.24 -0.105"/>
   </joint>
-  <link name="left_wheel_center_mini_front">
+  <link name="left_center_1_wheel">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -132,14 +132,14 @@
       <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
     </inertial>
   </link>
-  <joint name="left_wheel_joint_center_mini_back" type="continuous">
+  <joint name="left_center_3_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
-    <child link="left_wheel_center_mini_back"/>
+    <child link="left_center_3_wheel"/>
     <origin rpy="0 1.57075 -1.57" xyz="-0.07716 0.24 -0.105"/>
   </joint>
-  <link name="left_wheel_center_mini_back">
+  <link name="left_center_3_wheel">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -157,14 +157,14 @@
       <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
     </inertial>
   </link>
-  <joint name="left_wheel_joint_big_front" type="continuous">
+  <joint name="left_front_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
-    <child link="left_wheel_big_front"/>
+    <child link="left_front_wheel"/>
     <origin rpy="0 1.57075 -1.57" xyz="0.172 0.24 -0.08"/>
   </joint>
-  <link name="left_wheel_big_front">
+  <link name="left_front_wheel">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -182,14 +182,14 @@
       <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
     </inertial>
   </link>
-  <joint name="left_wheel_joint_big_back" type="continuous">
+  <joint name="left_back_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
-    <child link="left_wheel_big_back"/>
+    <child link="left_back_wheel"/>
     <origin rpy="0 1.57075 -1.57" xyz="-0.172 0.24 -0.08"/>
   </joint>
-  <link name="left_wheel_big_back">
+  <link name="left_back_wheel">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -207,14 +207,14 @@
       <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
     </inertial>
   </link>
-  <joint name="right_wheel_joint" type="continuous">
+  <joint name="right_center_2_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
-    <child link="right_wheel"/>
+    <child link="right_center_2_wheel"/>
     <origin rpy="0 1.57075 -1.57" xyz="0 -0.22 -0.105"/>
   </joint>
-  <link name="right_wheel">
+  <link name="right_center_2_wheel">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -232,14 +232,14 @@
       <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
     </inertial>
   </link>
-  <joint name="right_wheel_joint_center_mini_front" type="continuous">
+  <joint name="right_center_1_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
-    <child link="right_wheel_center_mini_front"/>
+    <child link="right_center_1_wheel"/>
     <origin rpy="0 1.57075 -1.57" xyz="0.07716 -0.22 -0.105"/>
   </joint>
-  <link name="right_wheel_center_mini_front">
+  <link name="right_center_1_wheel">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -257,14 +257,14 @@
       <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
     </inertial>
   </link>
-  <joint name="right_wheel_joint_center_mini_back" type="continuous">
+  <joint name="right_center_3_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
-    <child link="right_wheel_center_mini_back"/>
+    <child link="right_center_3_wheel"/>
     <origin rpy="0 1.57075 -1.57" xyz="-0.07716 -0.22 -0.105"/>
   </joint>
-  <link name="right_wheel_center_mini_back">
+  <link name="right_center_3_wheel">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -282,14 +282,14 @@
       <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
     </inertial>
   </link>
-  <joint name="right_wheel_joint_big_front" type="continuous">
+  <joint name="right_front_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
-    <child link="right_wheel_big_front"/>
+    <child link="right_front_wheel"/>
     <origin rpy="0 1.57075 -1.57" xyz="0.172 -0.22 -0.08"/>
   </joint>
-  <link name="right_wheel_big_front">
+  <link name="right_front_wheel">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -307,14 +307,14 @@
       <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00024" iyz="0.0" izz="0.00015"/>
     </inertial>
   </link>
-  <joint name="right_wheel_joint_big_back" type="continuous">
+  <joint name="right_back_wheel_joint" type="continuous">
     <axis rpy="0 0 0" xyz="0 0 -1"/>
     <limit effort="1.0" lower="-1.57" upper="1.57" velocity="2.0"/>
     <parent link="base_body"/>
-    <child link="right_wheel_big_back"/>
+    <child link="right_back_wheel"/>
     <origin rpy="0 1.57075 -1.57" xyz="-0.172 -0.22 -0.08"/>
   </joint>
-  <link name="right_wheel_big_back">
+  <link name="right_back_wheel">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -375,8 +375,8 @@
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive">
       <update_rate>10</update_rate>
       <!-- wheels -->
-      <left_joint>left_wheel_joint</left_joint>
-      <right_joint>right_wheel_joint</right_joint>
+      <left_joint>left_center_2_wheel_joint</left_joint>
+      <right_joint>right_center_2_wheel_joint</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
       <wheel_diameter>0.07716</wheel_diameter>
@@ -401,8 +401,8 @@
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive_mini_front">
       <update_rate>10</update_rate>
       <!-- wheels -->
-      <left_joint>left_wheel_joint_center_mini_front</left_joint>
-      <right_joint>right_wheel_joint_center_mini_front</right_joint>
+      <left_joint>left_center_1_wheel_joint</left_joint>
+      <right_joint>right_center_1_wheel_joint</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
       <wheel_diameter>0.07716</wheel_diameter>
@@ -417,8 +417,8 @@
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive_mini_back">
       <update_rate>10</update_rate>
       <!-- wheels -->
-      <left_joint>left_wheel_joint_center_mini_back</left_joint>
-      <right_joint>right_wheel_joint_center_mini_back</right_joint>
+      <left_joint>left_center_3_wheel_joint</left_joint>
+      <right_joint>right_center_3_wheel_joint</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
       <wheel_diameter>0.07716</wheel_diameter>
@@ -433,8 +433,8 @@
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive_big_front">
       <update_rate>10</update_rate>
       <!-- wheels -->
-      <left_joint>left_wheel_joint_big_front</left_joint>
-      <right_joint>right_wheel_joint_big_front</right_joint>
+      <left_joint>left_front_wheel_joint</left_joint>
+      <right_joint>right_front_wheel_joint</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
       <wheel_diameter>0.07716</wheel_diameter>
@@ -449,8 +449,8 @@
     <plugin filename="libgazebo_ros_diff_drive.so" name="cugo_diff_drive_big_back">
       <update_rate>10</update_rate>
       <!-- wheels -->
-      <left_joint>left_wheel_joint_big_back</left_joint>
-      <right_joint>right_wheel_joint_big_back</right_joint>
+      <left_joint>left_back_wheel_joint</left_joint>
+      <right_joint>right_back_wheel_joint</right_joint>
       <!-- kinematics -->
       <wheel_separation>0.460</wheel_separation>
       <wheel_diameter>0.07716</wheel_diameter>
@@ -461,72 +461,52 @@
       <legacyMode>false</legacyMode>
     </plugin>
   </gazebo>
-  <gazebo reference="right_wheel">
+  <gazebo reference="right_center_2_wheel">
     <mu1>2.0</mu1>
     <mu2>2.0</mu2>
     <material>Gazebo/GreyTransparent</material>
   </gazebo>
-  <gazebo reference="right_wheel_center_mini_front">
+  <gazebo reference="right_center_1_wheel">
     <mu1>2.0</mu1>
     <mu2>2.0</mu2>
     <material>Gazebo/GreyTransparent</material>
   </gazebo>
-  <gazebo reference="right_wheel_center_mini_back">
+  <gazebo reference="right_center_3_wheel">
     <mu1>2.0</mu1>
     <mu2>2.0</mu2>
     <material>Gazebo/GreyTransparent</material>
   </gazebo>
-  <gazebo reference="right_wheel_mini_front">
+  <gazebo reference="right_front_wheel">
     <mu1>2.0</mu1>
     <mu2>2.0</mu2>
     <material>Gazebo/GreyTransparent</material>
   </gazebo>
-  <gazebo reference="right_wheel_mini_back">
+  <gazebo reference="right_back_wheel">
     <mu1>2.0</mu1>
     <mu2>2.0</mu2>
     <material>Gazebo/GreyTransparent</material>
   </gazebo>
-  <gazebo reference="right_wheel_big_front">
+  <gazebo reference="left_center_2_wheel">
     <mu1>2.0</mu1>
     <mu2>2.0</mu2>
     <material>Gazebo/GreyTransparent</material>
   </gazebo>
-  <gazebo reference="right_wheel_big_back">
+  <gazebo reference="left_center_1_wheel">
     <mu1>2.0</mu1>
     <mu2>2.0</mu2>
     <material>Gazebo/GreyTransparent</material>
   </gazebo>
-  <gazebo reference="left_wheel">
+  <gazebo reference="left_center_3_wheel">
     <mu1>2.0</mu1>
     <mu2>2.0</mu2>
     <material>Gazebo/GreyTransparent</material>
   </gazebo>
-  <gazebo reference="left_wheel_center_mini_front">
+  <gazebo reference="left_front_wheel">
     <mu1>2.0</mu1>
     <mu2>2.0</mu2>
     <material>Gazebo/GreyTransparent</material>
   </gazebo>
-  <gazebo reference="left_wheel_center_mini_back">
-    <mu1>2.0</mu1>
-    <mu2>2.0</mu2>
-    <material>Gazebo/GreyTransparent</material>
-  </gazebo>
-  <gazebo reference="left_wheel_mini_front">
-    <mu1>2.0</mu1>
-    <mu2>2.0</mu2>
-    <material>Gazebo/GreyTransparent</material>
-  </gazebo>
-  <gazebo reference="left_wheel_mini_back">
-    <mu1>2.0</mu1>
-    <mu2>2.0</mu2>
-    <material>Gazebo/GreyTransparent</material>
-  </gazebo>
-  <gazebo reference="left_wheel_big_front">
-    <mu1>2.0</mu1>
-    <mu2>2.0</mu2>
-    <material>Gazebo/GreyTransparent</material>
-  </gazebo>
-  <gazebo reference="left_wheel_big_back">
+  <gazebo reference="left_back_wheel">
     <mu1>2.0</mu1>
     <mu2>2.0</mu2>
     <material>Gazebo/GreyTransparent</material>
