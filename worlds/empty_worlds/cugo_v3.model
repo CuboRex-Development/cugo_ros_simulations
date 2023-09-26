@@ -44,7 +44,7 @@
     </physics>
 
     <include>
-      <uri>model://cugo</uri>
+      <uri>model://cugo_v3</uri>
     </include>
 
   </world>
