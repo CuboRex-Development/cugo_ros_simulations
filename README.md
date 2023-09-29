@@ -13,6 +13,7 @@ Arduinoドライバのリポジトリはこちら： https://github.com/CuboRex-
 - [Topics and Parameters](#topics-and-parameters)
 - [UDP Protocol](#udp-protocol)
 - [Note](#note)
+- [Simulation](#simulation)
 - [License](#license)
 
 # Features
@@ -133,6 +134,33 @@ RECV_ENCODER_R | float      | `4`             | 4                           | �
 クローラ走行の振動が非常に大きいので、RJ45端子のEthernetケーブルでの通信 / WiFi接続による通信をお勧めします。
 シリアル通信ものちに対応予定です。
 
+# Simulation
+## Install External Packages
+シミュレーションにはROS Gazeboパッケージを使用するため、Gazeboを始めとしていくつかの外部パッケージが必要です。
+以下のコマンドを1行ずつ実行することで、依存パッケージをインストールします。
+~~~
+$ cd ~/your/ros_workspace/ros2_ws/src/cugo_ros2_control/install
+$ sudo chmod 755 install_simulation_dependencies.sh
+$ ./install_simulation_dependencies.sh
+$ source ~/your/ros_workspace/ros2_ws/install/local_setup.bash
+$ source set_env.sh
+~~~
+
+## Launch Simulation World
+Gazebo環境は2種類用意しています。次のコマンドのいずれかを使用することで、Gazebo環境が起動します。
+~~~
+# （推奨）TurtleBot3 World
+$ ros2 launch cugo_ros2_control sim_world.launch.py
+
+# Empty World
+$ ros2 launch cugo_ros2_control empty_world.launch.py
+~~~
+
+## Run Navigation Node
+新しくターミナルを開き、以下のコマンドでNavigation2ノードを実行することで、ナビゲーションのシミュレーションを行うことができます。
+~~~
+$ ros2 launch cugo_ros2_control simulation_nav2.launch.py
+~~~
 
 # License
 このプロジェクトはApache License 2.0のもと、公開されています。詳細はLICENSEをご覧ください。
