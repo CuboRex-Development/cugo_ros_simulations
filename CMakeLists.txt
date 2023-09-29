@@ -44,7 +44,7 @@ install(TARGETS cugo_ros2_control
   DESTINATION lib/${PROJECT_NAME})
 
 install(
-  DIRECTORY config launch map models rviz worlds
+  DIRECTORY config launch models rviz worlds
   DESTINATION share/${PROJECT_NAME}
 )
 
