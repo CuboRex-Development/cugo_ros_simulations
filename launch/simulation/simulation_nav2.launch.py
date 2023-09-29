@@ -20,7 +20,7 @@ def generate_launch_description():
             'map',
             'map.yaml'))
 
-    param_file_name = 'cugo.yaml'
+    param_file_name = 'cugo_v3.yaml'
     param_dir = LaunchConfiguration(
         'params_file',
         default=os.path.join(package_dir, 'config', 'simulation', param_file_name))
