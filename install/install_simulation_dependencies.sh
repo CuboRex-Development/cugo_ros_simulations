@@ -12,13 +12,13 @@ wget https://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
 sudo apt update
 sudo apt install -y gazebo11
 sudo apt install -y libgazebo11-dev
-sudo apt install -y ros-foxy-gazebo-*
+sudo apt install -y ros-$ROS_DISTRO-gazebo-*
 echo ""
 
 echo "Install turtlebot3 packages"
-sudo apt install -y ros-foxy-dynamixel-sdk
-sudo apt install -y ros-foxy-turtlebot3-msgs
-sudo apt install -y ros-foxy-turtlebot3
+sudo apt install -y ros-$ROS_DISTRO-dynamixel-sdk
+sudo apt install -y ros-$ROS_DISTRO-turtlebot3-msgs
+sudo apt install -y ros-$ROS_DISTRO-turtlebot3
 cd ../..
 git clone -b foxy-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
 echo ""
@@ -27,26 +27,26 @@ echo "Install other dependencies"
 sudo apt install -y python3-colcon-common-extensions
 sudo apt install -y python3-argcomplete
 sudo apt install -y python3-vcstool
-sudo apt install -y ros-foxy-v4l2-camera
-sudo apt install -y ros-foxy-controller-manager
-sudo apt install -y ros-foxy-cv-bridge
-sudo apt install -y ros-foxy-diff-drive-controller
-sudo apt install -y ros-foxy-effort-controllers
-sudo apt install -y ros-foxy-joint-state-publisher
-sudo apt install -y ros-foxy-joint-state-publisher-gui
-sudo apt install -y ros-foxy-joint-trajectory-controller
-sudo apt install -y ros-foxy-joint-state-broadcaster
-sudo apt install -y ros-foxy-joint-state-controller
-sudo apt install -y ros-foxy-ros2-controllers
-sudo apt install -y ros-foxy-tf2
-sudo apt install -y ros-foxy-tf2-tools
-sudo apt install -y ros-foxy-xacro
-sudo apt install -y ros-foxy-slam-toolbox
+sudo apt install -y ros-$ROS_DISTRO-v4l2-camera
+sudo apt install -y ros-$ROS_DISTRO-controller-manager
+sudo apt install -y ros-$ROS_DISTRO-cv-bridge
+sudo apt install -y ros-$ROS_DISTRO-diff-drive-controller
+sudo apt install -y ros-$ROS_DISTRO-effort-controllers
+sudo apt install -y ros-$ROS_DISTRO-joint-state-publisher
+sudo apt install -y ros-$ROS_DISTRO-joint-state-publisher-gui
+sudo apt install -y ros-$ROS_DISTRO-joint-trajectory-controller
+sudo apt install -y ros-$ROS_DISTRO-joint-state-broadcaster
+sudo apt install -y ros-$ROS_DISTRO-joint-state-controller
+sudo apt install -y ros-$ROS_DISTRO-ros2-controllers
+sudo apt install -y ros-$ROS_DISTRO-tf2
+sudo apt install -y ros-$ROS_DISTRO-tf2-tools
+sudo apt install -y ros-$ROS_DISTRO-xacro
+sudo apt install -y ros-$ROS_DISTRO-slam-toolbox
 echo ""
 
 echo "Install navigation2"
-sudo apt install -y ros-foxy-navigation2
-sudo apt install -y ros-foxy-nav2-bringup
+sudo apt install -y ros-$ROS_DISTRO-navigation2
+sudo apt install -y ros-$ROS_DISTRO-nav2-bringup
 echo ""
 
 cd ../
